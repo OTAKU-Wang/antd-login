@@ -2,9 +2,9 @@ import { SignUpService, SignInService } from "../../service";
 import { Credential, Email, User } from "../../entities";
 // TODO: 还没完全实现，需要添加后端请求
 export class SampleService implements SignInService, SignUpService {
-    async signInWithCredential(credential: Credential): Promise<User> {
+    async signInWithCredential(credential: Credential): Promise<boolean> {
         return Promise.resolve(
-            new User("Sample Service", "User", "sampleservice@email.com"),
+            true,
         );
     }
 

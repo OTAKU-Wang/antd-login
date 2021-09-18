@@ -1,5 +1,5 @@
 import { Email } from "./email";
-import _ from 'underscore';
+import { isBlank } from 'underscore.string';
 
 export class User {
     _firstName: string;
@@ -26,5 +26,5 @@ export class User {
 }
 
 function isEmptyOrNull(word: string) {
-    return _.string.isBlank(word)
+    return isBlank(word)
 }

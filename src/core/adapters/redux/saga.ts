@@ -39,12 +39,8 @@ function* signInSaga(action: SignInActionType) {
     try {
         const service = new SampleService();
         const interactor = new SignInInteractor(service);
-        const user: Promise<User> = yield interactor.signIn(credential);
-        let userResult = null;
-        user.then((results) => {
-            userResult = results;
-        });
-        yield put(updateUserAction(userResult));
+        const user: User = yield interactor.signIn(credential);
+        yield put(updateUserAction(user));
     } catch (error) {
         console.error(error);
         // DO SOMETHING ELSE
@@ -56,12 +52,8 @@ function* signUpSaga(action: SignUpActionType) {
     try {
         const service = new SampleService();
         const interactor = new SignUpInteractor(service);
-        const user: Promise<User> = yield interactor.signUp(firstName, lastName, credential);
-        let userResult = null;
-        user.then((result) => {
-            userResult = result
-        });
-        yield put(updateUserAction(userResult));
+        const user: User = yield interactor.signUp(firstName, lastName, credential);
+        yield put(updateUserAction(user));
     } catch (error) {
         console.error(error);
         // DO SOMETHING ELSE

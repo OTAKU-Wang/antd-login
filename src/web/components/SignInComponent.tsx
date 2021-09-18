@@ -51,9 +51,9 @@ export class SignInComponent extends React.Component<PropsType, StateType> {
           autoComplete="off"
         >
           <Form.Item
-            label="用户名"
-            name="username"
-            rules={[{ required: true, message: '请输入用户名!' }]}
+            label="邮箱"
+            name="email"
+            rules={[{ required: true, type: 'email', message: '请输正确的邮箱地址!' }]}
           >
             <Input type="text"
               placeholder={this.state.email}
@@ -64,7 +64,7 @@ export class SignInComponent extends React.Component<PropsType, StateType> {
           <Form.Item
             label="密码"
             name="password"
-            rules={[{ required: true, message: '请输入密码!' }]}
+            rules={[{ required: true, whitespace: true, message: '请输入密码!' }]}
           >
             <Input.Password type="password"
               placeholder={this.state.password}
